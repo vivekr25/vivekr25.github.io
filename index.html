@@ -1,151 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vivek Raghunathan | Portfolio</title>
-        <style>
-            /* ... your CSS styles here ... */
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1 style="color:#2c3e50">Vivek Raghunathan</h1>
-            <img src="assets/profile.jpg" alt="Vivek Raghunathan" style="width:150px; border-radius:50%; margin-top:10px;">
-            
-            <!-- Rest of your portfolio content -->
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+<div class="projects">
+    <h2>Projects</h2>
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 50px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-
-        h1, h2, h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .projects {
-            margin-top: 40px;
-        }
-
-        .project {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .skills {
-            margin-top: 40px;
-        }
-
-        .skills ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .skills li {
-            background: #e3e3e3;
-            margin: 8px;
-            padding: 10px 14px;
-            border-radius: 5px;
-            flex: 1 0 28%;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .contact {
-            margin-top: 40px;
-        }
-
-        .about {
-            margin-top: 30px;
-            padding-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Vivek Raghunathan</h1>
-        <p>Data Analyst with 7+ years of experience in healthcare analytics. Currently building and deploying machine learning solutions for real-world health risks.</p>
-
-        <div class="about">
-            <h2>About Me</h2>
-            <p>I am passionate about using data to solve meaningful problems. With over 7 years of experience in healthcare analytics, I’ve worked across reporting, analysis, and data storytelling roles. I’m currently building a strong portfolio of machine learning and AI projects to transition into a full-time data science role with a focus on real-world health applications.</p>
-        </div>
-
-        <div class="projects">
-            <h2>Projects</h2>
-        
-            <div class="project">
-                <h3>🧠 Stroke Prediction Analysis</h3>
-                <p>A machine learning pipeline to predict stroke risk using real-world health indicators. Implemented SMOTE for class imbalance, deployed via Flask and Render.</p>
-                <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, SMOTE, Flask, Render</p>
-                <p>🔗 <a href="https://stroke-prediction-analysis.onrender.com/" target="_blank">Live Demo</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/vivekr25/stroke-prediction-analysis" target="_blank">GitHub Repo</a></p>
-            </div>
-        
-            <div class="project">
-                <h3>🫀 Heart Disease Predictor</h3>
-                <p>End-to-end ML project that includes data exploration, visualization, model building, and deployment of a heart disease risk predictor.</p>
-                <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, Flask, Render</p>
-                <p>🔗 <a href="https://heart-disease-predictor-vivek.onrender.com/" target="_blank">Live Demo</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/vivekr25/heart-disease-predictor" target="_blank">GitHub Repo</a></p>
-            </div>
-        
-            <div class="project">
-                <h3>💉 Diabetes Risk Predictor</h3>
-                <p>An XGBoost-powered web app that predicts diabetes risk using health indicators like BMI, physical activity, and general health. Built with Flask and deployed on Render. Features real-time prediction and threshold tuning.</p>
-                <p>🔗 <a href="https://diabetes-risk-predictor-zwm2.onrender.com" target="_blank">Live Demo</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/vivekr25/diabetes_risk_predictor" target="_blank">GitHub Repo</a></p>
-            </div>
-        </div>
-
-        <div class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Python</li>
-                <li>Pandas</li>
-                <li>Scikit-learn</li>
-                <li>Seaborn</li>
-                <li>Matplotlib</li>
-                <li>SQL</li>
-                <li>Power BI</li>
-                <li>Qlik Sense</li>
-                <li>Flask</li>
-                <li>GitHub</li>
-                <li>Render</li>
-                <li>EDA</li>
-            </ul>
-        </div>
-
-        <div class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:vivekraghunathan2@gmail.com">vivekraghunathan2@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/vivekr25" target="_blank">github.com/vivekr25</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/raghuvivek" target="_blank">linkedin.com/in/raghuvivek</a></p>
-        </div>
+    <div class="project">
+        <h3>💉 Diabetes Risk Predictor</h3>
+        <p>
+            <span class="badge">XGBoost</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Render</span>
+            <span class="badge">Real-time Prediction</span>
+        </p>
+        <p>An XGBoost-powered web app that predicts diabetes risk using health indicators like BMI, physical activity, and general health. Built with Flask and deployed on Render. Features real-time prediction and threshold tuning.</p>
+        <ul class="stats">
+            <li><strong>Accuracy:</strong> 86%</li>
+            <li><strong>Class Imbalance:</strong> Handled using <code>scale_pos_weight</code></li>
+            <li><strong>Deployment:</strong> Live on Render</li>
+        </ul>
+        <p>🔗 <a href="https://diabetes-risk-predictor-zwm2.onrender.com" target="_blank">Live Demo</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/vivekr25/diabetes_risk_predictor" target="_blank">GitHub Repo</a></p>
     </div>
-</body>
-</html>
+
+    <div class="project">
+        <h3>🫀 Heart Disease Predictor</h3>
+        <p>
+            <span class="badge">Logistic Regression</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Render</span>
+            <span class="badge">Confusion Matrix</span>
+        </p>
+        <p>End-to-end ML project predicting heart disease using patient data. Explores EDA, model training, and evaluation using logistic regression. Deployed as a user-friendly Flask app.</p>
+        <ul class="stats">
+            <li><strong>Accuracy:</strong> 85.3%</li>
+            <li><strong>Tools:</strong> Pandas, Matplotlib, Scikit-learn</li>
+            <li><strong>Deployment:</strong> Live on Render</li>
+        </ul>
+        <p>🔗 <a href="https://heart-disease-predictor-vivek.onrender.com/" target="_blank">Live Demo</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/vivekr25/heart-disease-predictor" target="_blank">GitHub Repo</a></p>
+    </div>
+
+    <div class="project">
+        <h3>🧠 Stroke Prediction Analysis</h3>
+        <p>
+            <span class="badge">SMOTE</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Render</span>
+            <span class="badge">Health Indicators</span>
+        </p>
+        <p>Stroke risk predictor trained on public health data with class imbalance handled via SMOTE. Web app built in Flask, hosted on Render, and features clean user interaction.</p>
+        <ul class="stats">
+            <li><strong>Imbalance Strategy:</strong> SMOTE Oversampling</li>
+            <li><strong>Libraries:</strong> Scikit-learn, Pandas</li>
+            <li><strong>Deployment:</strong> Live on Render</li>
+        </ul>
+        <p>🔗 <a href="https://stroke-prediction-analysis.onrender.com/" target="_blank">Live Demo</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/vivekr25/stroke-prediction-analysis" target="_blank">GitHub Repo</a></p>
+    </div>
+</div>
