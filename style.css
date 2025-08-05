@@ -1,0 +1,89 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.connect-text {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.social-icons a {
+  color: #333;
+  font-size: 20px;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.projects h2 {
+  margin-bottom: 20px;
+}
+
+.project-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background: #212529;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer .social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+}
