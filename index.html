@@ -1,136 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivek Raghunathan | Data Science Projects</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            color: #222;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 20px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-        }
-
-        .profile img {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .social-icons a {
-            margin-left: 20px;
-            font-size: 1.5rem;
-            color: #333;
-            text-decoration: none;
-        }
-
-        .container {
-            padding: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .project {
-            background-color: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-        }
-
-        .project h3 {
-            margin-top: 0;
-        }
-
-        .project p {
-            margin: 10px 0;
-        }
-
-        .project a {
-            color: rebeccapurple;
-            text-decoration: none;
-        }
-
-        .project a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 20px 10px;
-        }
-
-        .footer-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.4rem;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivek Raghunathan | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #222;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .header-left img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .header-right {
+      text-align: right;
+    }
+    .header-right p {
+      margin: 0 0 5px;
+      font-weight: bold;
+    }
+    .header-right a {
+      margin-left: 12px;
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .summary {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .project {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .project h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+    }
+    .project h3 i {
+      margin-right: 10px;
+    }
+    .project a {
+      color: purple;
+      text-decoration: none;
+    }
+    footer {
+      background: #222;
+      color: #eee;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #eee;
+      margin: 0 12px;
+      font-size: 20px;
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <div class="profile">
-            <img src="assets/profile.jpg" alt="Vivek Raghunathan">
-            <h1>Vivek Raghunathan</h1>
-        </div>
-        <div class="social-icons">
-            <a href="https://github.com/vivekr25" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:vivekr25@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/raghuvivek/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </header>
+  <header>
+    <div class="header-left">
+      <img src="assets/vivek.jpg" alt="Vivek Raghunathan">
+      <h1>Vivek Raghunathan</h1>
+    </div>
+    <div class="header-right">
+      <p>Let's Connect</p>
+      <a href="https://github.com/vivekr25" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:vivek@example.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/vivekraghunathan" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
 
-    <div class="container">
-        <div class="project">
-            <h3><i class="fas fa-heart"></i> Heart Disease Predictor</h3>
-            <p>Deployed machine learning web app to predict heart disease using logistic regression. Features include model deployment with Flask, interactive UI, and GitHub integration.</p>
-            <p><i class="fas fa-link"></i> <a href="https://heart-disease-predictor-xyz.onrender.com" target="_blank">Live Demo</a> | <i class="fas fa-code"></i> <a href="https://github.com/vivekr25/heart_disease_predictor" target="_blank">GitHub Repo</a></p>
-        </div>
-
-        <div class="project">
-            <h3><i class="fas fa-syringe"></i> Diabetes Risk Predictor</h3>
-            <p>An XGBoost-powered web app that predicts diabetes risk using health indicators like BMI, physical activity, and general health. Built with Flask and deployed on Render. Features real-time prediction and threshold tuning.</p>
-            <p><i class="fas fa-link"></i> <a href="https://diabetes-risk-predictor-zwm2.onrender.com" target="_blank">Live Demo</a> | <i class="fas fa-code"></i> <a href="https://github.com/vivekr25/diabetes_risk_predictor" target="_blank">GitHub Repo</a></p>
-        </div>
-
-        <div class="project">
-            <h3><i class="fas fa-brain"></i> Stroke Prediction Analysis</h3>
-            <p>Stroke risk predictor trained on public health data with class imbalance handled via SMOTE. Web app built in Flask, hosted on Render, and features clean user interaction.</p>
-            <p><i class="fas fa-link"></i> <a href="https://stroke-predictor-app.onrender.com" target="_blank">Live Demo</a> | <i class="fas fa-code"></i> <a href="https://github.com/vivekr25/stroke_prediction" target="_blank">GitHub Repo</a></p>
-        </div>
+  <div class="container">
+    <div class="summary">
+      I’m a data analyst with over 8 years of experience at Health New Zealand, currently upskilling in machine learning and AI through hands-on, end-to-end projects. My portfolio reflects a strong foundation in health data analytics, model deployment, and storytelling.
     </div>
 
-    <footer>
-        <p>© 2025 Vivek Raghunathan</p>
-        <div class="footer-icons">
-            <a href="https://github.com/vivekr25" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:vivekr25@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/raghuvivek/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div class="projects">
+        <h2>Projects</h2>
+      
+        <div class="project">
+          <h3><i class="fas fa-heartbeat"></i> Heart Disease Predictor</h3>
+          <p>Deployed machine learning web app to predict heart disease using logistic regression. Features include model deployment with Flask, interactive UI, and GitHub integration.</p>
+          <p>
+            <a href="https://heart-disease-predictor.onrender.com" target="_blank">🔗 Live Demo</a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/vivekr25/heart_disease_predictor" target="_blank">💻 GitHub Repo</a>
+          </p>
         </div>
-    </footer>
-</body>
+      
+        <div class="project">
+          <h3><i class="fas fa-syringe"></i> Diabetes Risk Predictor</h3>
+          <p>An XGBoost-powered web app that predicts diabetes risk using health indicators like BMI, physical activity, and general health. Built with Flask and deployed on Render. Features real-time prediction and threshold tuning.</p>
+          <p>
+            <a href="https://diabetes-risk-predictor-zwm2.onrender.com" target="_blank">🔗 Live Demo</a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/vivekr25/diabetes_risk_predictor" target="_blank">💻 GitHub Repo</a>
+          </p>
+        </div>
+      
+        <div class="project">
+          <h3><i class="fas fa-brain"></i> Stroke Risk Predictor</h3>
+          <p>A machine learning app that predicts the likelihood of stroke using patient health indicators. Includes advanced preprocessing, model tuning, and Flask-based deployment with UI enhancements.</p>
+          <p>
+            <a href="https://stroke-risk-predictor.onrender.com" target="_blank">🔗 Live Demo</a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/vivekr25/stroke_prediction_project" target="_blank">💻 GitHub Repo</a>
+          </p>
+        </div>
+      </div>
 
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Vivek Raghunathan</p>
+    <a href="https://github.com/vivekr25" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="mailto:vivek@example.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://linkedin.com/in/vivekraghunathan" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </footer>
+</body>
 </html>
