@@ -104,4 +104,24 @@ main {
   color: #fff;
   margin: 0 10px;
   font-size: 20px;
+
+  .resume-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .resume-btn i {
+    margin-right: 6px;
+  }
+  
+  .resume-btn:hover {
+    background-color: #c0392b;
+  }
 }
