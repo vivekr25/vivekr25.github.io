@@ -117,66 +117,49 @@ main {
 .resume-btn:hover { background-color: #c0392b; }
 
 /* ------------------ Tech Stack ------------------ */
+/* Tech Stack — force solid colors & no opacity */
 .tech-stack {
   max-width: 1000px;
   margin: 40px auto;
   padding: 24px;
-  background: #fff;
+  background: #ffffff;      /* force light bg in light mode */
+  color: #222;              /* readable text in light mode */
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  opacity: 1 !important;    /* kill any inherited opacity */
 }
 
-.tech-stack h2 {
-  margin: 0 0 10px;
-  font-size: 1.8rem;
-}
+.tech-stack * { opacity: 1 !important; }  /* ensure children aren’t faded */
 
-.tech-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 12px;
-}
+.tech-stack h2 { margin: 0 0 10px; font-size: 1.8rem; color: inherit; }
+.tech-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.tech-list li { line-height: 1.55; color: inherit; }
+.tech-list li i { width: 22px; text-align: center; margin-right: 6px; opacity: .85; }
 
-.tech-list li { line-height: 1.55; }
-
-.tech-list li i {
-  width: 22px;
-  text-align: center;
-  margin-right: 6px;
-  opacity: .85;
-}
-
-/* Badges */
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
-}
-
+/* Badges (unchanged except explicit text color) */
+.badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border: 1px solid #e7e7e7;
-  border-radius: 999px;
-  font-size: .92rem;
-  background: #fafafa;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border: 1px solid #e7e7e7; border-radius: 999px;
+  font-size: .92rem; background: #fafafa; color: #222;
   transition: .15s ease;
 }
+.badge:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,0,0,.06); }
 
-.badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(0,0,0,.06);
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .tech-stack { margin: 24px 12px; padding: 18px; }
-  .badge { font-size: .88rem; padding: 5px 10px; }
+/* Dark mode — force proper dark bg & light text */
+@media (prefers-color-scheme: dark) {
+  .tech-stack {
+    background: #161a22;   /* same tone as cards */
+    color: #e6e6e6;
+    box-shadow: 0 2px 12px rgba(0,0,0,.4);
+  }
+  .tech-list li { color: #dcdcdc; }
+  .badge {
+    background: #1b2030;
+    border-color: #2a3245;
+    color: #e6e6e6;
+  }
+  .badge:hover { box-shadow: 0 6px 14px rgba(0,0,0,.35); }
 }
 
 /* ------------------ Dark Mode (auto) ------------------ */
