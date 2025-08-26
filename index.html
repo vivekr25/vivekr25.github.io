@@ -6,9 +6,18 @@
   <title>Vivek Raghunathan | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .tech-stack { max-width: 1000px; margin: 40px auto; padding: 24px; background:#fff; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+    .tech-stack h2 { margin-top:0; }
+    .tech-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .tech-list li { line-height: 1.6; }
+    .badge-row { display:flex; flex-wrap: wrap; gap:10px; margin-top:10px; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e7e7e7; border-radius:999px; font-size:.9rem; background:#fafafa; }
+    .resume-btn { display:inline-block; margin-top:10px; padding:8px 12px; border-radius:8px; background:#e74c3c; color:#fff; text-decoration:none; }
+    .resume-btn i { margin-right:6px; }
+  </style>
 </head>
 <body>
- <!-- Trigger GitHub Pages rebuild --> 
   <header class="header">
     <div class="header-left">
       <img src="assets/profile.jpg" alt="Vivek Raghunathan" class="profile-pic" />
@@ -17,8 +26,12 @@
         <p>
           Analytics professional at Health New Zealand with 8+ years of experience. Passionate about solving real-world problems using machine learning and deploying data products end-to-end.
         </p>
-        <a href="Vivek_Raghunathan_Resume.pdf" class="resume-btn" target="_blank">
+        <!-- Resume Buttons -->
+        <a href="VivekRaghunathan_Resume.pdf" class="resume-btn" target="_blank">
           <i class="fas fa-file-pdf"></i> View Resume
+        </a>
+        <a href="VivekRaghunathan_Resume.pdf" class="resume-btn" download>
+          <i class="fas fa-download"></i> Download Resume
         </a>
       </div>
     </div>
@@ -42,7 +55,7 @@
           Deployed ML web app to predict heart disease using logistic regression. Features include Flask deployment, interactive UI, and GitHub integration.
         </p>
         <p>
-          <a href="https://heart-disease-predictor.onrender.com" target="_blank">🔗 Live Demo</a> |
+          <a href="https://heart-disease-predictor-noin.onrender.com" target="_blank">🔗 Live Demo</a> |
           <a href="https://github.com/vivekr25/heart_disease_predictor" target="_blank">💻 GitHub Repo</a>
         </p>
       </div>
@@ -64,9 +77,31 @@
           ML app that predicts stroke risk using SMOTE to balance the dataset. Deployed using Flask with interactive UI. Emphasizes class imbalance handling.
         </p>
         <p>
-          <a href="https://stroke-prediction-xprj.onrender.com" target="_blank">🔗 Live Demo</a> |
+          <a href="https://stroke-prediction-analysis.onrender.com" target="_blank">🔗 Live Demo</a> |
           <a href="https://github.com/vivekr25/stroke_prediction" target="_blank">💻 GitHub Repo</a>
         </p>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+      <h2>Tech Stack</h2>
+      <ul class="tech-list">
+        <li><strong><i class="fa-solid fa-code"></i> Programming & Data:</strong> Python (pandas, numpy), SQL, Data Wrangling</li>
+        <li><strong><i class="fa-solid fa-robot"></i> Machine Learning & AI:</strong> Scikit-learn, XGBoost, Logistic Regression, Random Forest, Explainable AI (SHAP)</li>
+        <li><strong><i class="fa-solid fa-chart-simple"></i> Visualisation & BI:</strong> Power BI, Qlik Sense, Microsoft Excel, Matplotlib, Dashboard Design</li>
+        <li><strong><i class="fa-solid fa-server"></i> Deployment & Engineering:</strong> Flask, Render, Git/GitHub, CI/CD basics, REST APIs</li>
+        <li><strong><i class="fa-solid fa-people-group"></i> Consulting & Delivery:</strong> Stakeholder engagement, Data storytelling, Cross-functional collaboration</li>
+      </ul>
+      <div class="badge-row" aria-hidden="true">
+        <span class="badge"><i class="fa-brands fa-python"></i> Python</span>
+        <span class="badge"><i class="fa-solid fa-flask"></i> Flask</span>
+        <span class="badge"><i class="fa-solid fa-diagram-project"></i> scikit-learn</span>
+        <span class="badge"><i class="fa-solid fa-xmark"></i> XGBoost</span>
+        <span class="badge"><i class="fa-solid fa-brain"></i> SHAP</span>
+        <span class="badge"><i class="fa-solid fa-cloud"></i> Render</span>
+        <span class="badge"><i class="fa-solid fa-database"></i> SQL</span>
+        <span class="badge"><i class="fa-solid fa-chart-line"></i> Power BI</span>
       </div>
     </section>
   </main>
