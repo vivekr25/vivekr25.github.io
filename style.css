@@ -1,3 +1,4 @@
+/* Base */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -43,30 +45,20 @@ body {
 }
 
 .social-icons a {
-  color: #000;
-  font-size: 20px;
-  margin: 4px 0;
-  display: inline-block;
-}
-
-.connect-text {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.social-icons a {
   color: #333;
   font-size: 20px;
   margin-left: 15px;
   text-decoration: none;
 }
 
+/* Main */
 main {
   max-width: 1000px;
   margin: auto;
   padding: 30px 20px;
 }
 
+/* Project cards */
 .projects h2 {
   margin-bottom: 20px;
 }
@@ -93,6 +85,7 @@ main {
   text-decoration: underline;
 }
 
+/* Footer */
 .footer {
   background: #212529;
   color: #fff;
@@ -104,24 +97,114 @@ main {
   color: #fff;
   margin: 0 10px;
   font-size: 20px;
+}
 
-  .resume-btn {
-    display: inline-block;
-    margin-top: 8px;
-    background-color: #e74c3c;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+/* Resume Button */
+.resume-btn {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.resume-btn i { margin-right: 6px; }
+
+.resume-btn:hover { background-color: #c0392b; }
+
+/* ------------------ Tech Stack ------------------ */
+.tech-stack {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.tech-stack h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.tech-list li { line-height: 1.55; }
+
+.tech-list li i {
+  width: 22px;
+  text-align: center;
+  margin-right: 6px;
+  opacity: .85;
+}
+
+/* Badges */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid #e7e7e7;
+  border-radius: 999px;
+  font-size: .92rem;
+  background: #fafafa;
+  transition: .15s ease;
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0,0,0,.06);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .tech-stack { margin: 24px 12px; padding: 18px; }
+  .badge { font-size: .88rem; padding: 5px 10px; }
+}
+
+/* ------------------ Dark Mode (auto) ------------------ */
+@media (prefers-color-scheme: dark) {
+  body { background: #0f1115; color: #e6e6e6; }
+
+  .header,
+  .project-card,
+  .tech-stack {
+    background: #161a22;
+    box-shadow: 0 2px 12px rgba(0,0,0,.4);
   }
-  
-  .resume-btn i {
-    margin-right: 6px;
+
+  .social-icons a { color: #ddd; }
+  .project-card a { color: #8ab4ff; }
+
+  .footer { background: #0b0e13; }
+
+  .badge {
+    background: #1b2030;
+    border-color: #2a3245;
+    color: #e6e6e6;
   }
-  
-  .resume-btn:hover {
-    background-color: #c0392b;
-  }
+
+  .badge:hover { box-shadow: 0 6px 14px rgba(0,0,0,.35); }
+
+  .resume-btn { background: #d0493a; }
+  .resume-btn:hover { background: #b53d30; }
+
+  .tech-list li i { opacity: .9; }
 }
