@@ -2,154 +2,926 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vivek Raghunathan | Portfolio</title>
-  <!-- cache-bust to ensure fresh CSS -->
-  <link rel="stylesheet" href="style.css?v=2" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vivek Raghunathan — Data Scientist</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    /* --- Local tweaks (safe overrides) --- */
-    .tech-stack,
-    .tech-stack * {
-      opacity: 1 !important;
-      filter: none !important;
+    :root {
+      --bg: #0d0f0e;
+      --bg2: #131615;
+      --surface: #191c1a;
+      --border: #232926;
+      --text: #e8ede9;
+      --muted: #6b7a6e;
+      --accent: #4ade80;
+      --accent2: #86efac;
+      --accent-dim: rgba(74,222,128,0.08);
+      --accent-glow: rgba(74,222,128,0.15);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
     }
-    .tech-stack { 
-      max-width: 1000px; 
-      margin: 40px auto; 
-      padding: 24px; 
-      background:#fff; 
-      border-radius:12px; 
-      box-shadow:0 2px 12px rgba(0,0,0,.06); 
-    }
-    .tech-stack h2 { margin-top:0; }
-    .tech-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
-    .tech-list li { line-height: 1.6; }
-    .badge-row { display:flex; flex-wrap: wrap; gap:10px; margin-top:10px; }
-    .badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e7e7e7; border-radius:999px; font-size:.9rem; background:#fafafa; }
-    .resume-btn { display:inline-block; margin-top:10px; padding:8px 12px; border-radius:8px; background:#e74c3c; color:#fff; text-decoration:none; }
-    .resume-btn i { margin-right:6px; }
 
-    @media (prefers-color-scheme: dark) {
-      .tech-stack { background:#161a22; color:#e6e6e6; box-shadow:0 2px 12px rgba(0,0,0,.4); }
-      .badge { background:#212734; border-color:#2c3444; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── Grid background ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(74,222,128,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,222,128,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(13,15,14,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 4rem;
+      gap: 4rem;
+      padding-top: 80px;
+    }
+
+    .hero-left { padding-right: 2rem; }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.1s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.25s forwards;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.55s forwards;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.75rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0d0f0e;
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─── Hero right: stat card ─── */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(74,222,128,0.3);
+      box-shadow: 0 4px 24px var(--accent-dim);
+    }
+
+    .stat-icon {
+      font-size: 1.5rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-dim);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-value {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--text);
+    }
+
+    .stat-sub {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    /* ─── Section base ─── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem;
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--text);
+    }
+
+    /* ─── Projects ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--bg2);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+
+    .project-card:hover { background: var(--surface); }
+    .project-card:hover::before { height: 100%; }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-pill {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover { color: var(--accent); }
+
+    .project-num {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.75rem;
+      font-family: var(--mono);
+      font-size: 3rem;
+      color: rgba(74,222,128,0.04);
+      font-weight: 500;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* ─── Skills ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      transition: border-color 0.2s;
+    }
+
+    .skill-group:hover { border-color: rgba(74,222,128,0.25); }
+
+    .skill-group-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-group-icon { font-size: 1.1rem; }
+
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .skill-list li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-list li::before {
+      content: '▸';
+      color: var(--border);
+      font-family: var(--mono);
+    }
+
+    /* ─── About ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .meta-row {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .meta-row:last-child { border-bottom: none; }
+
+    .meta-key {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 1rem 1.25rem;
+      width: 40%;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .meta-val {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    /* ─── Connect ─── */
+    .connect-section {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 5rem 4rem;
+    }
+
+    .connect-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .connect-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .connect-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .connect-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-built {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--border);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
+    .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.1s; }
+    .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.2s; }
+    .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.3s; }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; min-height: auto; }
+      section { padding: 4rem 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .connect-section { padding: 4rem 1.5rem; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-left">
-      <img src="assets/profile.jpg" alt="Vivek Raghunathan" class="profile-pic" />
-      <div>
-        <h1>Vivek Raghunathan</h1>
-        <p>
-          Analytics professional with 8+ years of experience delivering advanced analytics solutions across
-          complex, multi-source datasets. Passionate about solving real-world problems using machine learning and deploying data products end-to-end.
-        </p>
-        <!-- Resume Buttons -->
-        <a href="assets/VivekRaghunathan_Resume.pdf" class="resume-btn" target="_blank">
-          <i class="fas fa-file-pdf"></i> View Resume
-        </a>
-        <a href="assets/VivekRaghunathan_Resume.pdf" class="resume-btn" download>
-          <i class="fas fa-download"></i> Download Resume
-        </a>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">VR_25</span>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Data Scientist · Hamilton, NZ</div>
+      <h1 class="hero-name">Vivek<br/><em>Raghunathan</em></h1>
+      <p class="hero-desc">
+        Analytics professional with 8+ years turning complex, multi-source datasets into decisions that matter — with a health sector focus and a bias for deploying things that actually work.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="assets/VivekRaghunathan_Resume.pdf" class="btn btn-ghost">Download CV</a>
       </div>
     </div>
-    <div class="header-right">
-      <p class="connect-text">Let's Connect</p>
-      <div class="social-icons">
-        <a href="https://github.com/vivekr25" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:vivekraghunathan2@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/raghuvivek" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+    <div class="hero-right">
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div>
+          <div class="stat-label">Experience</div>
+          <div class="stat-value">8+ Years</div>
+          <div class="stat-sub">NZ Public Health Sector</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🧠</div>
+        <div>
+          <div class="stat-label">Specialisation</div>
+          <div class="stat-value">ML & Predictive Analytics</div>
+          <div class="stat-sub">Classification · Explainability · Deployment</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🚀</div>
+        <div>
+          <div class="stat-label">Live Projects</div>
+          <div class="stat-value">4 Deployed Apps</div>
+          <div class="stat-sub">Flask · Streamlit · Render · GitHub</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏥</div>
+        <div>
+          <div class="stat-label">Focus Area</div>
+          <div class="stat-value">Health × Data</div>
+          <div class="stat-sub">Aotearoa New Zealand</div>
+        </div>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- Projects -->
-    <section class="projects">
-      <h2>Projects</h2>
-
-      <!-- NEW: Alan-NZ -->
-      <div class="project-card">
-        <h3><i class="fas fa-globe"></i> Alan-NZ: Environment × Health (Streamlit)</h3>
-        <p>
-          Interactive data app exploring how environmental context (night-time light and air quality) intersects with
-          health outcomes and equity patterns across Aotearoa New Zealand. Designed for exploratory insight (observational, not causal).
-        </p>
-        <p>
-          <a href="https://light-nz-alan-health.streamlit.app/" target="_blank">🔗 Live App</a> |
-          <a href="https://github.com/vivekr25/light-nz-alan-health" target="_blank">💻 GitHub Repo</a>
-        </p>
-      </div>
-
-      <div class="project-card">
-        <h3><i class="fas fa-heartbeat"></i> Heart Disease Predictor</h3>
-        <p>
-          Deployed ML web app to predict heart disease using logistic regression. Features include Flask deployment, interactive UI, and GitHub integration.
-        </p>
-        <p>
-          <a href="https://heart-disease-predictor-noin.onrender.com" target="_blank">🔗 Live Demo</a> |
-          <a href="https://github.com/vivekr25/heart-disease-analysis" target="_blank">💻 GitHub Repo</a>
-        </p>
-      </div>
-
-      <div class="project-card">
-        <h3><i class="fas fa-syringe"></i> Diabetes Risk Predictor</h3>
-        <p>
-          An XGBoost-powered app that predicts diabetes risk using health indicators like BMI, physical activity, and general health. Built with Flask and deployed on Render.
-        </p>
-        <p>
-          <a href="https://diabetes-risk-predictor-zwm2.onrender.com" target="_blank">🔗 Live Demo</a> |
-          <a href="https://github.com/vivekr25/diabetes_risk_predictor" target="_blank">💻 GitHub Repo</a>
-        </p>
-      </div>
-
-      <div class="project-card">
-        <h3><i class="fas fa-brain"></i> Stroke Prediction App</h3>
-        <p>
-          ML app that predicts stroke risk using SMOTE to balance the dataset. Deployed using Flask with interactive UI. Emphasizes class imbalance handling.
-        </p>
-        <p>
-          <a href="https://stroke-prediction-analysis.onrender.com" target="_blank">🔗 Live Demo</a> |
-          <a href="https://github.com/vivekr25/stroke-prediction-analysis" target="_blank">💻 GitHub Repo</a>
-        </p>
-      </div>
-    </section> <!-- ✅ CLOSE Projects -->
-
-    <!-- Tech Stack -->
-    <section class="tech-stack">
-      <h2>Tech Stack</h2>
-      <ul class="tech-list">
-        <li><strong><i class="fa-solid fa-code"></i> Programming & Data:</strong> Python (pandas, numpy), SQL, Data Wrangling</li>
-        <li><strong><i class="fa-solid fa-robot"></i> Machine Learning & AI:</strong> scikit-learn, XGBoost, Logistic Regression, Random Forest, Explainable AI (SHAP)</li>
-        <li><strong><i class="fa-solid fa-chart-simple"></i> Visualisation & BI:</strong> Power BI, Qlik Sense, Microsoft Excel, Matplotlib, Plotly, Dashboard Design</li>
-        <li><strong><i class="fa-solid fa-server"></i> Deployment & Engineering:</strong> Flask, Streamlit, Render, Git/GitHub, CI/CD basics, REST APIs</li>
-        <li><strong><i class="fa-solid fa-people-group"></i> Consulting & Delivery:</strong> Stakeholder engagement, Data storytelling, Cross-functional collaboration</li>
-      </ul>
-
-      <div class="badge-row" aria-hidden="true">
-        <span class="badge"><i class="fa-brands fa-python"></i> Python</span>
-        <span class="badge"><i class="fa-solid fa-flask"></i> Flask</span>
-        <span class="badge"><i class="fa-solid fa-diagram-project"></i> scikit-learn</span>
-        <span class="badge"><i class="fa-solid fa-bolt"></i> XGBoost</span>
-        <span class="badge"><i class="fa-solid fa-brain"></i> SHAP</span>
-        <span class="badge"><i class="fa-solid fa-cloud"></i> Render</span>
-        <span class="badge"><i class="fa-solid fa-database"></i> SQL</span>
-        <span class="badge"><i class="fa-solid fa-chart-line"></i> Power BI</span>
-        <span class="badge"><i class="fa-solid fa-chart-pie"></i> Plotly</span>
-        <span class="badge"><i class="fa-solid fa-desktop"></i> Streamlit</span>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>&copy; 2025 Vivek Raghunathan</p>
-    <div class="social-icons">
-      <a href="https://github.com/vivekr25" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:vivekraghunathan2@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/raghuvivek" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Selected Work</h2>
     </div>
+
+    <div class="projects-grid reveal-stagger">
+
+      <a class="project-card" href="https://light-nz-alan-health.streamlit.app/" target="_blank">
+        <span class="project-tag">Streamlit · EDA</span>
+        <h3 class="project-name">Alan-NZ: Environment × Health</h3>
+        <p class="project-desc">Interactive app exploring how night-time light and air quality intersect with health outcomes and equity patterns across Aotearoa. Observational analysis at regional scale.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Streamlit</span>
+          <span class="tech-pill">Plotly</span>
+          <span class="tech-pill">GeoPandas</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">↗ Live App</span>
+          <span class="project-link">⌥ GitHub</span>
+        </div>
+        <span class="project-num">01</span>
+      </a>
+
+      <a class="project-card" href="https://heart-disease-predictor-noin.onrender.com" target="_blank">
+        <span class="project-tag">Flask · Logistic Regression</span>
+        <h3 class="project-name">Heart Disease Predictor</h3>
+        <p class="project-desc">End-to-end ML web app predicting heart disease risk using logistic regression, with SHAP explainability and an interactive input UI. 85%+ accuracy deployed on Render.</p>
+        <div class="project-tech">
+          <span class="tech-pill">scikit-learn</span>
+          <span class="tech-pill">SHAP</span>
+          <span class="tech-pill">Flask</span>
+          <span class="tech-pill">Render</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">↗ Live Demo</span>
+          <span class="project-link">⌥ GitHub</span>
+        </div>
+        <span class="project-num">02</span>
+      </a>
+
+      <a class="project-card" href="https://diabetes-risk-predictor-zwm2.onrender.com" target="_blank">
+        <span class="project-tag">Flask · XGBoost</span>
+        <h3 class="project-name">Diabetes Risk Predictor</h3>
+        <p class="project-desc">XGBoost-powered risk predictor using health indicators including BMI, physical activity, and general health. Demonstrates gradient boosting in a real deployed context.</p>
+        <div class="project-tech">
+          <span class="tech-pill">XGBoost</span>
+          <span class="tech-pill">Flask</span>
+          <span class="tech-pill">pandas</span>
+          <span class="tech-pill">Render</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">↗ Live Demo</span>
+          <span class="project-link">⌥ GitHub</span>
+        </div>
+        <span class="project-num">03</span>
+      </a>
+
+      <a class="project-card" href="https://stroke-prediction-analysis.onrender.com" target="_blank">
+        <span class="project-tag">Flask · SMOTE · Class Imbalance</span>
+        <h3 class="project-name">Stroke Prediction App</h3>
+        <p class="project-desc">ML classifier for stroke risk with a focus on class imbalance handling via SMOTE — a key real-world challenge in health data where positive cases are rare.</p>
+        <div class="project-tech">
+          <span class="tech-pill">scikit-learn</span>
+          <span class="tech-pill">SMOTE</span>
+          <span class="tech-pill">Flask</span>
+          <span class="tech-pill">imbalanced-learn</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">↗ Live Demo</span>
+          <span class="project-link">⌥ GitHub</span>
+        </div>
+        <span class="project-num">04</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Technical Stack</h2>
+    </div>
+
+    <div class="skills-grid reveal-stagger">
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">⚙️</span>
+          <span class="skill-group-title">Languages & Data</span>
+        </div>
+        <ul class="skill-list">
+          <li>Python (pandas, numpy)</li>
+          <li>SQL (Oracle, complex queries)</li>
+          <li>Data Wrangling & Cleaning</li>
+          <li>dbt (growing)</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">🧠</span>
+          <span class="skill-group-title">ML & AI</span>
+        </div>
+        <ul class="skill-list">
+          <li>scikit-learn, XGBoost</li>
+          <li>Logistic & Linear Regression</li>
+          <li>Random Forest, SMOTE</li>
+          <li>SHAP Explainability</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">📊</span>
+          <span class="skill-group-title">Visualisation & BI</span>
+        </div>
+        <ul class="skill-list">
+          <li>Power BI, Qlik Sense</li>
+          <li>Plotly, Matplotlib</li>
+          <li>OBIEE, Hyperion</li>
+          <li>Dashboard Design</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">🚀</span>
+          <span class="skill-group-title">Deployment</span>
+        </div>
+        <ul class="skill-list">
+          <li>Flask, Streamlit</li>
+          <li>Render, GitHub Pages</li>
+          <li>Git / GitHub, CI/CD</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">🏥</span>
+          <span class="skill-group-title">Domain Expertise</span>
+        </div>
+        <ul class="skill-list">
+          <li>NZ Public Health Systems</li>
+          <li>Health Data Governance</li>
+          <li>Oracle ODI, Hadoop</li>
+          <li>Stakeholder Reporting</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">💬</span>
+          <span class="skill-group-title">Consulting & Delivery</span>
+        </div>
+        <ul class="skill-list">
+          <li>Data Storytelling</li>
+          <li>Stakeholder Engagement</li>
+          <li>Cross-functional Delivery</li>
+          <li>Executive Reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">About</h2>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>
+          I'm a <strong>senior data professional</strong> based in Hamilton, Aotearoa New Zealand, with over eight years of hands-on experience making sense of complex health datasets for the public good.
+        </p>
+        <p>
+          My background spans analytics and business intelligence across New Zealand's public health system — but I've been deliberately pushing toward <strong>machine learning and AI-powered products</strong>, building and deploying real apps rather than just notebooks.
+        </p>
+        <p>
+          I believe in <strong>showing, not telling</strong>: every project on this site is live, deployed, and built end-to-end. I care about explainability, fairness in health data, and making models that people can actually trust.
+        </p>
+      </div>
+
+      <div class="about-meta">
+        <div class="meta-row">
+          <span class="meta-key">Based in</span>
+          <span class="meta-val">Hamilton, NZ 🇳🇿</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Background</span>
+          <span class="meta-val">NZ Public Health Sector</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Interests</span>
+          <span class="meta-val">Health AI, Explainability, NLP</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Currently</span>
+          <span class="meta-val">Open to new opportunities</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">GitHub</span>
+          <span class="meta-val">github.com/vivekr25</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Availability</span>
+          <span class="meta-val">Immediate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <div class="connect-section" id="connect">
+    <div class="connect-label">Get in touch</div>
+    <h2 class="connect-title">Let's work<br/><em style="font-style:italic; color:var(--accent)">together.</em></h2>
+    <p class="connect-sub">Open to data science, analytics engineering, and ML roles across New Zealand.</p>
+    <div class="connect-links">
+      <a href="mailto:vivek@example.com" class="btn btn-primary">Send Email</a>
+      <a href="https://linkedin.com/in/vivekraghunathan" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/vivekr25" target="_blank" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2025 Vivek Raghunathan</span>
+    <span class="footer-built">Built with intent · Hamilton, NZ</span>
   </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
